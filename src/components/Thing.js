@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Thing extends Component {
 	state = {};
 
-	handleClick() {
+	handleClick = () => {
 		this.setState({ yoro: this.state.text });
-	}
+	};
 
 	changeText(e) {
 		this.setState({ text: e.target.value });
@@ -15,7 +15,7 @@ class Thing extends Component {
 		return (
 			<div>
 				<input onChange={this.changeText.bind(this)} />
-				<button onClick={this.handleClick.bind(this)}>Click me</button>
+				<button onClick={this.handleClick}>Click me</button>
 				<h1>{this.state.text}</h1>
 			</div>
 		);
