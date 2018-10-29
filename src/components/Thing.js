@@ -15,7 +15,7 @@ class Thing extends Component {
 		return (
 			<div>
 				<input onChange={this.changeText.bind(this)} />
-				<button onClick={this.handleClick.bind(this)}>Click be</button>
+				<button onClick={this.handleClick.bind(this)}>Click me</button>
 				<h1>{this.state.text}</h1>
 			</div>
 		);
