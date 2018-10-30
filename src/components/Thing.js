@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 
-class Thing extends Component {
-	state = {};
+const A = 65; // ASCII character code
 
-	handleClick = () => {
-		this.setState({ yoro: this.state.text });
-	};
-
-	changeText(e) {
-		this.setState({ text: e.target.value });
+class Thing extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+		this.state = {
+			justClicked: null,
+			letters: Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i))
+		};
 	}
-
+	handleClick(letter) {
+		this.setState({ justClicked: letter });
+	}
 	render() {
 		return (
 			<div>
-				<input onChange={this.changeText.bind(this)} />
-				<button onClick={this.handleClick}>Click me</button>
-				<h1>{this.state.text}</h1>
+				Just clicked: {this.state.justClicked}
+				<ul>
+					{this.state.letters.map((letter) => (
+						<li key={letter} onClick={() => this.handleClick(letter)}>
+							{letter}
+						</li>
+					))}
+				</ul>
 			</div>
 		);
 	}
