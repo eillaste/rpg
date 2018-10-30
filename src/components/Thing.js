@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//If you want to print the change after a call to setState, use the optional callback parameter:
 class Thing extends Component {
 	state = {};
 
@@ -8,7 +8,9 @@ class Thing extends Component {
 	};
 
 	changeText(e) {
-		this.setState({ text: e.target.value });
+		this.setState({ text: e.target.value }, function() {
+			console.log(this.state.text);
+		});
 	}
 
 	render() {
