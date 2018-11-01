@@ -14,10 +14,13 @@ class Thing extends Component {
 	}
 
 	render() {
+		let reebok = 123;
 		return (
 			<div>
 				<input onChange={this.changeText.bind(this)} />
-				<button onClick={this.handleClick}>Click me</button>
+				<button reebok={reebok} onClick={this.handleClick}>
+					Click me!
+				</button>
 				<h1>{this.state.text}</h1>
 			</div>
 		);
